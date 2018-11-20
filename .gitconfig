@@ -1,0 +1,68 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+name = Aiden Sobey
+email = aiden.sobey@agworld.com.au
+[credential]
+  helper = osxkeychain
+[alias]
+	st = status
+	di = diff
+	co = checkout
+	ci = commit
+	br = branch
+	sta = stash
+	llog = log --date=local
+	flog = log --pretty=fuller --decorate
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lol = log --graph --decorate --oneline
+	lola = log --graph --decorate --oneline --all
+	blog = log origin/master... --left-right
+	ds = diff --staged
+	fixup = commit --fixup
+	squash = commit --squash
+	unstage = reset HEAD
+	rum = rebase
+	unpushed = log --branches --not --remotes --simplify-by-decoration --decorate --oneline
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[apply]
+	whitespace = nowarn
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	ui = auto
+[branch]
+	autosetupmerge = true
+[rebase]
+	autosquash = true
+[diff]
+	tool = p4mergetool
+[difftool "diffmerge"]
+	cmd = /usr/local/bin/diffmerge --nosplash \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[merge]
+	tool = p4mergetool
+[mergetool "diffmerge"]
+	cmd = /usr/local/bin/diffmerge --nosplash --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	trustExitCode = true
+[push]
+	default = simple
+[help]
+	autocorrect = 1
+[mergetool]
+	keepBackup = false
+	prompt = false
+[mergetool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $BASE $LOCAL $REMOTE $MERGED & diffmerge $BASE $LOCAL & diffmerge $BASE $REMOTE & wait
+	trustExitCode = false
+[difftool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
+	# This command opens the mergetool view + 2 diffs of the base to local & remote.It waits for all to close
+[core]
+	excludesfile = /Users/aiden/.gitignore
+	trustctime = true
+[rerere]
+	enabled = true
