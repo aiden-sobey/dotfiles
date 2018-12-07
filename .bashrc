@@ -23,6 +23,9 @@ alias clean='dev; bundle install; nvm use; yarn install; yarn build;'
 alias ag='ag --path-to-ignore ~/.ignore'
 alias theme_slack='cp ~/slackbackup.js /Applications/Slack.app/Contents/Resources/app.asar.unpacked/src/static/ssb-interop.js'
 alias magic_clean='db_clean db_update clean git checkout db/structure.sql'
+alias s='bin/rails s'
+alias c='bin/rails c'
+alias be='bundle exec'
 
 # First arg is number of copies to make. Second is file to copy
 rabbit() {

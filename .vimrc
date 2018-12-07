@@ -64,8 +64,11 @@ set backupdir=~/.vim/backup/
 
 " Plugins
 
+:cmap <TAB> :FZF<CR>
 runtime macros/matchit.vim
 execute pathogen#infect()
 
 call plug#begin('~/.vim/plugged')
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
