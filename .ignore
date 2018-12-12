@@ -1,0 +1,13 @@
+app/assets/javascripts/i18n/**/*
+app/assets/javascripts/i18n/*
+vendor/bundle/**/*
+vendor/assets/**/*
+doc/user_api/**/*
+lib/assets/**/*
+lib/vendor/**/*
+lib/agworld*.js
+public/private/assets/**/*
+public/temp/**/*
+public/temp/**/*
+public/packs/**/*
+node_modules/**/*

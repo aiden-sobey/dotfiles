@@ -65,6 +65,9 @@ set backupdir=~/.vim/backup/
 " Plugins
 
 :cmap <TAB> :FZF<CR>
+ " Make it @* to copy to clipboard
+noremap <silent> <F2> :let @"=expand("%")<CR>
+
 runtime macros/matchit.vim
 execute pathogen#infect()
 

@@ -1,0 +1,6 @@
+active-context: aidenagworld_semaphoreci_com
+contexts:
+  aidenagworld_semaphoreci_com:
+    auth:
+      token: vxjSoZiykanrm3J-yvTD
+    host: aidenagworld.semaphoreci.com
