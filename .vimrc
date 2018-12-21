@@ -15,25 +15,13 @@ function! StatuslineGit()
   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
 
-"set statusline=
-"set statusline+=%#PmenuSel#
-"set statusline+=%{StatuslineGit()}
-"set statusline+=%#LineNr#
-"set statusline+=\ %f
-"set statusline+=%m
-"set statusline+=%r
-"set statusline+=%=
-"set statusline+=%#CursorColumn#
-"set statusline+=\ %y
-"set statusline+=\ %p%%
-"set statusline+=\ %l:%c
-
 " Usability
 
 set clipboard=unnamed
 set mouse=a
 set scrolloff=5
 set cursorline
+set backspace=indent,eol,start
 
 " Searching
 
@@ -58,15 +46,26 @@ set autoindent
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Hide our swapfiles
+
 set backupdir=~/.vim/backup/
-"set directory=~/.vim/swap/
-"set undodir=~/.vim/undo/
+
+" Git Fugitive
+
+nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gc :Gcommit -v -q<CR>
+nnoremap <space>gd :Gdiff<CR>
+nnoremap <space>gw :Gwrite<CR><CR>
+nnoremap <space>gb :Git branch<Space>
+
+" Key mappings
+
+noremap <silent> <F2> :let @"=expand("%")<CR>
 
 " Plugins
 
 :cmap <TAB> :FZF<CR>
- " Make it @* to copy to clipboard
-noremap <silent> <F2> :let @"=expand("%")<CR>
+" Make it @* to copy to clipboard
 
 runtime macros/matchit.vim
 execute pathogen#infect()
@@ -74,4 +73,5 @@ execute pathogen#infect()
 call plug#begin('~/.vim/plugged')
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'ervandew/supertab'
 call plug#end()
